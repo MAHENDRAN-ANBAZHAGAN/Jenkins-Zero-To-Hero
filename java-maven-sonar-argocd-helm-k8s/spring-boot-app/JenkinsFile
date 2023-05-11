@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      sh "docker login -u mahendran1996anbazhagan -p ${docker-cred}"
+      registryCredentialsId "docker login -u mahendran1996anbazhagan -p ${docker-cred}"
       image 'mahendran1996anbazhagan/maven-abhishek-docker-agent:v1'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
     }
